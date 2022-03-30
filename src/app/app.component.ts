@@ -34,10 +34,11 @@ export class AppComponent implements OnInit {
     this.offset = 0;
     this.filter.Filter = filter;
     this.options = [];
+    console.log("filter" + filter)
     this.getAreas()
   }
   getAreas() {
-    if (this.options.length < this.total) {   
+    if (this.options.length < this.total || this.total==0) {   
       this.filter.SkipCount = this.offset;
       this.filter.MaxResultCount = this.limit;
       !this.filter.Filter ?  delete this.filter.Filter: null;
