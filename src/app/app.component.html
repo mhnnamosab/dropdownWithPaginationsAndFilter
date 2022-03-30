@@ -1,14 +1,14 @@
 <div class="container">
   <mat-form-field appearance="outline">
     <mat-label>Select</mat-label>
-    <mat-select
+    <mat-select [multiple]="isMultiple"
       (infiniteScroll)="getAreas()"
       [complete]="offset === options.length-1"
       msInfiniteScroll
     >
       <mat-option>
-        <ngx-mat-select-search [formControl]="searchFilter" [placeholderLabel]="'Search'" noEntriesFoundLabel="'no matching area'" [disableScrollToActiveOnOptionsChanged]="true">
-          <!-- <mat-icon ngxMatSelectSearchClear>delete</mat-icon> -->
+        <ngx-mat-select-search [formControl]="searchFilter" [placeholderLabel]="'Search'" noEntriesFoundLabel="'no matching area'" [disableScrollToActiveOnOptionsChanged]="true" [clearSearchInput]="false">
+          <!-- <mat-icon ngxMatSelectSearchClear>close</mat-icon> -->
         </ngx-mat-select-search>
       </mat-option>
       <mat-option *ngFor="let option of options" [value]="option.id">{{
